@@ -8,12 +8,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net;
+using System.Text;
 
 namespace carbooking
 {
     public partial class Register : System.Web.UI.Page
     {
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+        string encryptpwd;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -70,21 +73,22 @@ namespace carbooking
             
             try
             {
+                encript();
                 SqlConnection con = new SqlConnection(strcon);
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
                 }
-                SqlCommand cmd = new SqlCommand("insert into userregstr" + "(userid,fullname,userphone,useremail,useraddress,userpassword)values" + "(@userid,@fullname,@userphone,@useremail,@useraddress,@userpassword)", con);
-                cmd.Parameters.AddWithValue("@userid", userid.Text.Trim());
-                cmd.Parameters.AddWithValue("@fullname", fullname.Text.Trim());
-                cmd.Parameters.AddWithValue("@userphone", phonenum.Text.Trim());
-                cmd.Parameters.AddWithValue("@useremail", email.Text.Trim());
-                cmd.Parameters.AddWithValue("@useraddress", address.Text.Trim());
-                cmd.Parameters.AddWithValue("@userpassword", password.Text.Trim());
+                SqlCommand cmd = new SqlCommand("insert into userregstr(userid,fullname,userphone,useremail,useraddress,userpassword) values('"+ userid.Text + "','"+ fullname.Text + "','"+ phonenum.Text + "','"+ email.Text + "','"+ address.Text + "','"+ encryptpwd + "')", con);
+                //cmd.Parameters.AddWithValue("@userid", userid.Text.Trim());
+                //cmd.Parameters.AddWithValue("@fullname", fullname.Text.Trim());
+                //cmd.Parameters.AddWithValue("@userphone", phonenum.Text.Trim());
+                //cmd.Parameters.AddWithValue("@useremail", email.Text.Trim());
+                //cmd.Parameters.AddWithValue("@useraddress", address.Text.Trim());
+                //cmd.Parameters.AddWithValue("@userpassword", password.Text.Trim());
                 
 
-
+                //cmd.Connection= con;
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Response.Write("<script>alert('Registration sucessfull. Go to user login page');</script>");
@@ -101,5 +105,16 @@ namespace carbooking
             }
 
         }
+
+        void encript()
+        {
+            string strmsg = string.Empty;
+            byte[] encode = new byte[userid.Text.ToString().Length]; 
+            encode = Encoding.UTF8.GetBytes(userid.Text); 
+            strmsg = Convert.ToBase64String(encode); 
+            encryptpwd = strmsg;
+        }
+        
+
     }
 }
