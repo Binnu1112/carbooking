@@ -6,10 +6,10 @@
     <br />
 
     <center>
-       <body style="background-color:aqua;">
+       <body style="background-color:black;">
         <div class="container">
         <div class="row">
-            <div class="col-md-9 mx-auto">
+            <div class="col-md-5 mx-auto">
                 <div class="card">
                     <div class="card-body">
                         <form runat="server">
