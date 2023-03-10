@@ -33,7 +33,7 @@ namespace carbooking
             {
                 RegisterNewMember();
 
-
+                Response.Redirect("Otpverify.aspx");
             }
         }
 

@@ -30,23 +30,19 @@
                                     </div>
                                 </div>
                             </div>
-                              <asp:Label ID="Label8" runat="server" Text="Email" Font-Bold="True" Font-Size="Large"></asp:Label>
-                            <asp:TextBox CssClass="form-control" ID="email" runat="server" placeholder="Example@gmail"></asp:TextBox><br /><br />
+                              <asp:Label ID="Label8" runat="server" Text="Email" Font-Bold="True" Font-Size="Large" ForeColor="Black"></asp:Label>
+                            <asp:TextBox CssClass="form-control" ID="email" runat="server" placeholder="Example@gmail" TextMode="Email"></asp:TextBox><br /><br />
                            
                            <div class="row">
                                <div class="col-12">
                                    <div class="row">
-                                       <div class="col-4">
+                                       <div class="col-6">
                                             <asp:Label ID="Label5" runat="server" Text="ID" Font-Bold="True" Font-Size="Large" ForeColor="Black"></asp:Label>
                             <asp:TextBox CssClass="form-control" ID="userid" runat="server" placeholder="ID"></asp:TextBox><br /><br />
                                        </div>
-                                       <div class="col-4">
+                                       <div class="col-6">
                                             <asp:Label ID="Label6" runat="server" Text="Password" Font-Bold="True" Font-Size="Large" ForeColor="Black"></asp:Label>
-                            <asp:TextBox CssClass="form-control" ID="password" runat="server" placeholder="Password"></asp:TextBox><br /><br />
-                                       </div>
-                                       <div class="col-4">
-                                             
-                            
+                            <asp:TextBox CssClass="form-control" ID="password" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox><br /><br />
                                        </div>
                                    </div>
                                </div>
@@ -54,7 +50,7 @@
                             
                             
                             <asp:Label ID="Label4" runat="server" Text="Address" Font-Bold="True" Font-Size="Large" ForeColor="Black"></asp:Label>
-                            <asp:TextBox CssClass="form-control" ID="address" runat="server" placeholder="H.No,Street,Pincode,City,State."></asp:TextBox><br /><br />
+                            <asp:TextBox CssClass="form-control" ID="address" runat="server" placeholder="H.No,Street,Pincode,City,State." TextMode="MultiLine"></asp:TextBox><br /><br />
                            
                             <asp:Button CssClass="btn btn-success" Width="100" ID="registerbtn" runat="server" Text="Register" OnClick="registerbtn_Click" />
                           

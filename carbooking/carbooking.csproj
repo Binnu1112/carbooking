@@ -320,6 +320,7 @@
     <Content Include="car\scss\style.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="login.aspx" />
+    <Content Include="Otpverify.aspx" />
     <Content Include="Pricing.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -418,6 +419,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otpverify.aspx.cs">
+      <DependentUpon>Otpverify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otpverify.aspx.designer.cs">
+      <DependentUpon>Otpverify.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pricing.aspx.cs">
       <DependentUpon>Pricing.aspx</DependentUpon>
